@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title%} Secrets {% endblock %}
+{% block content %}
+{% from 'bootstrap/nav.html' import render_nav_item %}
+<nav class="navbar navbar-expand-md navbar-light bg-light border">
+    <div class="navbar-nav mr-auto">
+        {{ render_nav_item('login', 'Home') }}
+      {{ render_nav_item('denied', 'Moji') }}
+        {{ render_nav_item('success', 'Home') }}
+
+    </div>
+</nav>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome</h1>
+    <p>Are you ready to discover my secret?</p>
+    <a class="btn btn-primary btn-lg" href=" {{ url_for('login') }} "
+      >Login</a
+    >
+  </div>
+</div>
+{% endblock %}

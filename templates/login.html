@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Login here! {% endblock %}
+
+{% block content %}
+        <div class="container">
+			<h1>Login</h1>
+			<form action="" method="post" novalidate>
+				{{form.csrf_token}}
+				<p>{{ form.username.label}} {{ form.username(size=25)}}
+					{% for error in form.username.errors:%}
+					<ol>
+						<li>
+							<span style="color:blue;">{{error}}</span>
+						</li>
+					</ol>
+					{%endfor%}</p>
+
+
+				<p>
+					{{ form.password.label}} {{form.password(size=25)}}
+					{% for error in form.password.errors: %}
+					<ol>
+						<li>
+							<span style="color:red"> {{error}}</span>
+						</li>
+					</ol>
+					{% endfor %}
+				</p>
+				{{form.submit}}
+			</form>
+        </div>
+{% endblock %}
